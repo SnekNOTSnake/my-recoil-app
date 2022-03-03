@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRecoilState } from 'recoil'
 
-import todoAtom from '../../atoms/todo'
+import { todoListState } from '../../recoil-states/todoList'
 import { InputChange, Todo } from '../../types/Types'
 
 const replaceItemAtIndex = <T,>(arr: T[], index: number, newItem: T): T[] => {
@@ -17,7 +17,7 @@ const deleteItemAtIndex = <T,>(arr: T[], index: number): T[] => {
 }
 
 const TodoItem: React.FC<{ item: Todo }> = ({ item }) => {
-	const [todoList, setTodoList] = useRecoilState(todoAtom)
+	const [todoList, setTodoList] = useRecoilState(todoListState)
 	const index = todoList.findIndex((el) => el.id === item.id)
 
 	const onTitleChange = (e: InputChange) => {

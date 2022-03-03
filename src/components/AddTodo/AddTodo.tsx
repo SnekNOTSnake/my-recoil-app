@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useSetRecoilState } from 'recoil'
-import todoAtom from '../../atoms/todo'
+import { todoListState } from '../../recoil-states/todoList'
 import { FormSubmit, InputChange } from '../../types/Types'
 
 let id = 1
 const getId = () => id++
 
 const AddTodo: React.FC = () => {
-	const setMyTodo = useSetRecoilState(todoAtom)
+	const setMyTodo = useSetRecoilState(todoListState)
 	const [title, setTitle] = useState('')
 
 	const onContentChange = (e: InputChange) => setTitle(e.target.value)
